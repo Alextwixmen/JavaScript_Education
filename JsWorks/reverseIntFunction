@@ -1,0 +1,8 @@
+module.exports = function reverse(n) {
+    n = Math.abs(n).toString();
+    let reverstedInt = '';
+    for (i = 0; i < n.length; i++) {
+        reverstedInt = `${n[i]}${reverstedInt}`;
+    }
+    return +reverstedInt;
+}
