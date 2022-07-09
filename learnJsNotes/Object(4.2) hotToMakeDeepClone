@@ -1,0 +1,43 @@
+let Sasha = {
+    age: 23,
+    city: "Minsk",
+    social: {
+        VK: "Sasha",
+        YouTube: "Alextwixmen"
+    }
+}
+let clone = Object.assign({}, Sasha);
+clone.age = 25;
+clone.city = "Vitebsk";
+clone.social.VK = "IGOR";
+
+
+console.log(Sasha);
+console.log(clone);
+{
+  age: 23,
+  city: 'Minsk',
+  social: { VK: 'IGOR', YouTube: 'Alextwixmen' }
+}
+{
+  age: 25,
+  city: 'Vitebsk',
+  social: { VK: 'IGOR', YouTube: 'Alextwixmen' }
+}
+ Отчетливо видно что значение свойства вложенного объекта social меняется в двух местах. Очевидно, что клонирование объекта не происходит, как это решить?
+ Можно воспользоваться следующим методом:
+ const clone2 = JSON.parse(JSON.stringify(Sasha)); // теперь в переменной clone2 хранится глубокая копия объекта. ЧТо это означает?
+ // например, изменим следующее:
+clone2.social.VK = "Artem"; // изменяем значение только в clone 2.
+console.log(Sasha);
+console.log(clone2);
+{
+  age: 23,
+  city: 'Minsk',
+  social: { VK: 'Sasha', YouTube: 'Alextwixmen' } - тут хранится старое значение под ключом VK
+}
+{
+  age: 23,
+  city: 'Minsk',
+  social: { VK: 'Artem', YouTube: 'Alextwixmen' } - тут уже новое, так как это копия объекта, а не обращение к одному объекту из двух разных ссылок, если делать обычным клонированием
+}
