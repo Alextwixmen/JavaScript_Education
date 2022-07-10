@@ -1,0 +1,26 @@
+Условие:
+1. считать из prompt ключ, потом значение - записать ключ и значение в объект
+2. после реализации, внедрить доработку: если ключ уже есть в объекте, выводить confirm с вопросом перезаписать свойство или не надо
+3. после реализации, внедрить доработку чтобы он предлагал не один раз при открытии страницы, а постоянно предлагал добавлять ключи, пока не введешь STOP
+=================SOLUTION=================================
+
+let key;
+let value;
+let myObject = {
+    Name: "Vasya",
+    Age: 25,
+}
+do {
+    key = prompt('Write yor own key');
+    value = prompt("Wtire your own value for key");
+    if (myObject[key] != undefined) {
+        let isCOnfirm = confirm("Перезаписать объект?");
+        if (isCOnfirm === true) {
+            myObject[key] = value;
+        }
+    } else if (key != 'STOP') {
+        myObject[key] = value;
+    }
+}
+while (key != 'STOP')
+=================SOLUTION=================================
