@@ -1,0 +1,11 @@
+https://www.codewars.com/kata/5899642f6e1b25935d000161
+
+function mergeArrays(arr1, arr2) {
+ let twoArrs = [...arr1, ...arr2];
+let sortTwoArrs = twoArrs.sort(sortArr);
+let result = [...new Set(sortTwoArrs)];
+ return result
+}
+function sortArr(a, b) {
+    return a > b? 1 : b > a? -1 : 0;
+} 
